@@ -1,0 +1,166 @@
+\documentclass[12pt,a4paper]{report}
+% Preamble packages
+\usepackage[utf8]{inputenc}
+\usepackage{acronym}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{blindtext}     % Package to generate dummy texts
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,     
+	citecolor=blue, 
+	urlcolor=blue,
+}
+\usepackage{float}
+\usepackage{cleveref}
+\usepackage[left=3.5cm,right=2.0cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{lineno}
+\usepackage{comment}
+\usepackage{natbib}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{amsfonts}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{bm}
+\usepackage[toc,page]{appendix}
+\usepackage{ragged2e}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{titlesec} % Package for modifying section titles
+\usepackage{setspace} % Package for line spacing 
+%-----------------------------------------------------------------------
+
+
+
+%---------------------------------------------------------------------
+% Custom commands
+\newcommand{\dedicationNamea}{ Mother Name}
+\newcommand{\dedicationNameb}{Father Name}
+
+% Global definitions
+\def\mytitle{PROJECT TITLE HERE} % Put Project Title Here
+\def\HoDName{ Dr. Vidyullata Devmane }
+\def\principalName{ Dr. Bhavesh Patel }
+\def\studentNamea{ Student Name 1}
+\def\studentNameb{ Student Name 2 }
+\def\studentNamec{ Student Name 3 }
+\def\studentNamed{ Student Name 4 }
+\def\NewRollNoa{ New Roll No 1}
+\def\NewRollNob{ New Roll No 2}
+\def\NewRollNoc{ New Roll No 3}
+\def\NewRollNod{ New Roll No 4}
+\def\mydegree{BACHELOR OF TECHNOLOGY}  
+\def\branch{Computer Engineering} % Put Your Dept. name
+\def\mysupervisor{Guide Name} % Put guide name 
+\def\myrollno{XXX}
+\def\mydep{Department of Computer Engineering}
+\def\academicyear{20XX-20XX}
+
+% Customizing chapters and section titles
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}{15pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{20pt}{20pt} % Adjust spacing
+
+\titleformat{\section}
+   {\fontsize{16pt}{16pt}\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{18pt}{10pt} % Adjust spacing
+
+\titleformat{\subsection}
+   {\fontsize{14pt}{14pt}\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{18pt}{10pt} % Adjust spacing
+
+\titleformat{\subsubsection}
+   {\fontsize{12pt}{12pt}\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{18pt}{10pt} % Adjust spacing
+\setcounter{secnumdepth}{2}
+
+\setlength{\parskip}{0.5em} % Adjust the value as needed its the spacing between paragraphs
+
+\onehalfspacing     % line spacing sets to 1.5 for every pagraphs
+
+\begin{document}
+
+\baselineskip=18pt plus1pt
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\pagenumbering{roman}
+
+% Temporarily disable parskip for front matter
+\newlength{\savedparskip}
+\setlength{\savedparskip}{\parskip}
+\setlength{\parskip}{0pt}
+
+% Front matter
+\include{./front_matter/title_page}
+\addcontentsline{toc}{section}{Certificate} %CERTIFICATE
+\include{./front_matter/certificate}
+\addcontentsline{toc}{section}{Candidate's Declaration}%CANDIDATE'S DECLARATION
+\include{./front_matter/candidate's_declaration}
+\addcontentsline{toc}{section}{Certificate of Plagiarism Check}
+\include{./front_matter/certificate_of_Plag_Check}
+%\addcontentsline{toc}{section}{Dedication} % DEDICATION
+%\include{./front_matter/dedication}
+\addcontentsline{toc}{section}{Acknowledgement} %ACKNOWLEDGEMENT
+\include{./front_matter/acknowledgements}
+\addcontentsline{toc}{section}{Abstract} % ABSTRACT
+\include{./front_matter/abstract}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Increase font size for main content
+\fontsize{14}{18}\selectfont
+
+% Increase font size for figure captions 
+\captionsetup{font={normalsize, stretch=1.25}}
+
+% Restore parskip for main content
+\setlength{\parskip}{\savedparskip}
+
+% Main material
+\clearpage
+\pagenumbering{arabic}
+\justifying
+\include{./chapters/introduction}
+\include{./chapters/literature_review}
+\include{./chapters/srs}
+\include{./chapters/scheduling}
+\include{./chapters/proposedsystem}
+\include{./chapters/sem7_implementation} % Comment for Sem 8 report
+
+%\include{./chapters/sem8_implementation_details}  % uncomment for Sem 8 report
+
+\include{./chapters/sem7_summary}  % Comment for Sem 8 report
+
+%\include{./chapters/sem8_testing} % uncomment for Sem 8 report
+
+%\include{./chapters/sem8_results}  % uncomment for Sem 8 report
+
+%\include{./chapters/sem8_conclusion}  % uncomment for Sem 8 report
+% Revert font size to original if needed for other parts
+\fontsize{12}{14.4}\selectfont
+
+% Bibliography
+\bibliographystyle{ieeetr}
+
+\bibliography{references}
+\addcontentsline{toc}{chapter}{Bibliography}
+%\printbibliography
+
+%\appendix
+% \chapter{Appendix}
+\include{./chapters/appendix}
+
+
+%---- End of Main Document ---
+\end{document}
